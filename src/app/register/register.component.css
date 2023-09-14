@@ -1,0 +1,100 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.container {
+  width: 400px;
+}
+
+.card {
+  background-color: white;
+  padding: 80px;
+  border-radius: 5px;
+  box-shadow: 0 20px 15px rgba(0, 0, 0, 0.5);
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.label-float {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.label-float input {
+  font-size: 16px;
+  padding: 10px;
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: transparent;
+  outline: none;
+  transition: border-color 0.2s, background-color 0.2s;
+}
+
+.label-float input:focus {
+  border-color: #007bff;
+  background-color: rgba(0, 123, 255, 0.05);
+}
+
+.label-float label {
+  font-size: 14px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 10px;
+  padding: 0 5px;
+  background-color: white;
+  color: #999;
+  pointer-events: none;
+  transition: transform 0.2s, font-size 0.2s, top 0.2s;
+}
+
+.label-float input:valid + label {
+  font-size: 12px;
+  top: -12px;
+  transform: translateY(0);
+  background-color: white;
+}
+
+button[type="submit"] {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+button[type="submit"] {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
