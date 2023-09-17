@@ -1,0 +1,27 @@
+<form (ngSubmit)="registerPessoa(pessoaData)">
+  <body>
+  <div class='container'>
+    <div class='card'>
+      <h1> Cadastrar </h1>
+
+      <div class="label-float">
+        <input type="text" id="nome" placeholder="" name="nome" [(ngModel)]="pessoaData.nome" required>
+        <label id="labelNome" for="nome">Nome</label>
+      </div>
+
+      <div class="label-float">
+        <input type="text" id="cpf" placeholder=" " name="cpf" [(ngModel)]="pessoaData.cpf" required>
+        <label id="labelCPF" for="cpf">CPF</label>
+      </div>
+
+      <div class="label-float">
+        <input type="text" id="tipo" placeholder=" " name="tipo" [(ngModel)]="pessoaData.tipo" required>
+        <label id="labelTipo" for="tipo">Tipo de Pessoa</label>
+      </div>
+
+      <button type="submit">Salvar</button> <!-- Botão de Salvar -->
+
+    </div>
+  </div>
+  </body>
+</form>
