@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {AdminService} from "../services/admin.service";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -9,7 +10,10 @@ import {AdminService} from "../services/admin.service";
 export class RegisterComponent {
   pessoaData: any = {} ;
 
-  constructor(private adminService: AdminService) {
+  router: Router;
+
+  constructor(private adminService: AdminService, router: Router) {
+    this.router = router;
   }
 
   registerPessoa(pessoaData: any) {
@@ -18,6 +22,7 @@ export class RegisterComponent {
         response => {
           console.log('Registration successful', response);
           alert('Registro salvo com sucesso!');
+          this.router.navigate(['/home', '']);
         },
         error => {
           console.log('Registration failed', error);

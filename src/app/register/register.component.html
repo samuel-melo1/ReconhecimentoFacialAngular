@@ -15,11 +15,14 @@
       </div>
 
       <div class="label-float">
-        <input type="text" id="tipo" placeholder=" " name="tipo" [(ngModel)]="pessoaData.tipo" required>
-        <label id="labelTipo" for="tipo">Tipo de Pessoa</label>
+        <select name="tipo" id="tipo"  [(ngModel)]="pessoaData.tipo">
+          <option value="1">Aluno</option>
+          <option value="2">Responsável</option>
+          <option value="3">Profissional</option>
+        </select>
       </div>
 
-      <button type="submit">Salvar</button> <!-- Botão de Salvar -->
+      <button type="submit" routerLink="/home">Salvar</button> <!-- Botão de Salvar -->
 
     </div>
   </div>
