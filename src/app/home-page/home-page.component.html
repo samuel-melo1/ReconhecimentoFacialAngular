@@ -1,1 +1,23 @@
-<p>home-page works!</p>
+<div class="container">
+  <h2 class="text-center">Pessoa List</h2>
+  <table class="table table-stripped">
+    <thead>
+    <tr>
+      <th>Nome</th>
+      <th>CPF</th>
+      <th>Tipo</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let pessoa of pessoas">
+      <td> {{ pessoa.nome }} </td>
+      <td> {{ pessoa.cpf}} </td>
+      <td> {{ pessoa.tipo }} </td>
+      <td>
+
+
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

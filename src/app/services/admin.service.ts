@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs";
+import {Pessoa} from "../pessoa.model";
 
 @Injectable({
   providedIn: 'root'
@@ -17,4 +18,9 @@ export class AdminService {
     const url = `${this.baseUrl}/api/pessoa/create`;
     return this.http.post(url,pessoa);
   }
+
+  getPessoaList(): Observable<Pessoa[]> {
+    return this.http.get<Pessoa[]>(`${this.baseUrl}/api/pessoa/search`);
+  }
+
 }
