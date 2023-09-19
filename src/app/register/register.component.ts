@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
 import {AdminService} from "../services/admin.service";
-<<<<<<< HEAD
 import { Router } from '@angular/router';
-=======
->>>>>>> d1153313d67619a9e92b7b3d0fa63bf5fb41dbf5
+import { ToastrService } from 'ngx-toastr';
+
 
 @Component({
   selector: 'app-register',
@@ -12,30 +11,33 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent {
   pessoaData: any = {} ;
-
-<<<<<<< HEAD
   router: Router;
 
-  constructor(private adminService: AdminService, router: Router) {
+  constructor(private adminService: AdminService, router: Router, private toastr: ToastrService) {
     this.router = router;
-=======
-  constructor(private adminService: AdminService) {
->>>>>>> d1153313d67619a9e92b7b3d0fa63bf5fb41dbf5
+  }
+
+  onSubmit() {
+    this.adminService.registerPessoa(this.pessoaData).subscribe((result: any) => this.gotoDashboard());
+  }
+
+  gotoDashboard() {
+    this.router.navigate(['/home']);
+    
+  }
+  showSuccess() {
+    this.toastr.success('Pessoa cadastrada com sucesso', 'Sucesso');
   }
 
   registerPessoa(pessoaData: any) {
     this.adminService.registerPessoa(pessoaData)
       .subscribe(
         response => {
-          console.log('Registration successful', response);
-          alert('Registro salvo com sucesso!');
-<<<<<<< HEAD
-          this.router.navigate(['/home', '']);
-=======
->>>>>>> d1153313d67619a9e92b7b3d0fa63bf5fb41dbf5
+          this.gotoDashboard();
+          this.showSuccess();
         },
         error => {
-          console.log('Registration failed', error);
+          document.getElementById("message-danger")?.classList.remove("hidden");
         }
       );
   }

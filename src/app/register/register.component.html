@@ -15,23 +15,18 @@
       </div>
 
       <div class="label-float">
-<<<<<<< HEAD
-        <select name="tipo" id="tipo"  [(ngModel)]="pessoaData.tipo">
+        <select name="tipo" id="tipo"  [(ngModel)]="pessoaData.tipo" required>
           <option value="1">Aluno</option>
           <option value="2">Responsável</option>
           <option value="3">Profissional</option>
         </select>
       </div>
 
-      <button type="submit" routerLink="/home">Salvar</button> <!-- Botão de Salvar -->
-=======
-        <input type="text" id="tipo" placeholder=" " name="tipo" [(ngModel)]="pessoaData.tipo" required>
-        <label id="labelTipo" for="tipo">Tipo de Pessoa</label>
+      <div class="message-danger hidden " id="message-danger">
+        Os campos não foram preenchidos corretamente. Por favor tente outra vez.
       </div>
 
       <button type="submit">Salvar</button> <!-- Botão de Salvar -->
->>>>>>> d1153313d67619a9e92b7b3d0fa63bf5fb41dbf5
-
     </div>
   </div>
   </body>
