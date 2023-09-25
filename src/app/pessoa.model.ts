@@ -4,4 +4,6 @@ export class Pessoa {
   nome!: string;
   cpf!: string;
   tipo!: string;
+  content!: Pessoa[];
+  totalElements!: number;
 }

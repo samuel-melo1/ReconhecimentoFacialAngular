@@ -1,0 +1,18 @@
+/* Estilos para o elemento personalizado */
+.custom-select {
+  display: inline-block;
+  position: relative;
+}
+
+.custom-select select {
+  padding: 8px 15px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+}
+
+.custom-select label {
+  margin-right: 10px;
+  font-weight: bold;
+}

@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import {FormsModule} from "@angular/forms";
 import { FaceRecognitionComponent } from './face-recognition/face-recognition.component';
 import { HomePageComponent } from './home-page/home-page.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
 import {RouterModule, Routes} from "@angular/router";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
@@ -28,8 +29,9 @@ const routes : Routes = [
     RouterModule.forRoot(routes),
     HttpClientModule,
     FormsModule,
-    BrowserAnimationsModule, 
-    ToastrModule.forRoot(), 
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
+    MatPaginatorModule,
   ],
   exports: [RouterModule],
   providers: [],
