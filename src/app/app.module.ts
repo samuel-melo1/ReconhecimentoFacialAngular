@@ -10,6 +10,9 @@ import { HomePageComponent } from './home-page/home-page.component';
 import {RouterModule, Routes} from "@angular/router";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { PaginationComponent } from './pagination/pagination.component';
+  
+import { DataTablesModule } from 'angular-datatables';
 
 const routes : Routes = [
     { path: 'home', component: HomePageComponent },
@@ -22,6 +25,8 @@ const routes : Routes = [
     RegisterComponent,
     FaceRecognitionComponent,
     HomePageComponent,
+    PaginationComponent,
+  
   ],
   imports: [
     BrowserModule,
@@ -30,6 +35,7 @@ const routes : Routes = [
     FormsModule,
     BrowserAnimationsModule, 
     ToastrModule.forRoot(), 
+    DataTablesModule,
   ],
   exports: [RouterModule],
   providers: [],

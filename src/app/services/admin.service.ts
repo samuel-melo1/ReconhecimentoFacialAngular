@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Pessoa} from "../pessoa.model";
 
@@ -23,4 +23,12 @@ export class AdminService {
     return this.http.get<Pessoa[]>(`${this.baseUrl}/api/pessoa/search`);
   }
 
+
+   getListagem(pageNumber: number  , pageSize: number ): Observable<any> {
+      const url = `${this.baseUrl}/api/pessoa/listagem?pageNumber=${pageNumber}&pageSize=${pageSize}`;
+      console.log(pageNumber, pageSize);
+      return this.http.get<Pessoa[]>(url)
+
+    }
 }
+
