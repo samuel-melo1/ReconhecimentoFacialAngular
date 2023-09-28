@@ -32,10 +32,10 @@
     </tr>
     <nav aria-label="Page navigation example">
       <ul class="pagination justify-content-end">
-        <li class="page-item"><a class="page-link" href="/home?pageNumber={{pageNumber  - 1}}&pageSize={{pageSize}}">Previous</a></li>
+        <li class="page-item"><a class="page-link" href="/home?pageNumber={{pageNumber - 1}}&pageSize={{pageSize}}">Previous</a></li>
         <li class="page-item"><a class="page-link" href="/home?pageNumber={{pageNumber}}&pageSize={{pageSize}}">1</a></li>
-        <li class="page-item"><a class="page-link" href="/home?pageNumber={{pageNumber + 1}}&pageSize={{pageSize}}">2</a></li>
-        <li class="page-item"><a class="page-link" href="/home?pageNumber={{pageNumber + 2}}&pageSize={{pageSize}}">3</a></li>
+        <li class="page-item"><a class="page-link" href="/home?pageNumber={{pageNumber  + 1}}&pageSize={{pageSize}}">2</a></li>
+        <li class="page-item"><a class="page-link" href="/home?pageNumber={{(pageNumber + 1)}}&pageSize={{pageSize}}">3</a></li>
         <li class="page-item"><a class="page-link" href="/home?pageNumber={{(pageNumber + 1)}}&pageSize={{pageSize}}">Next</a></li>
       </ul>
     </nav>

@@ -13,9 +13,9 @@ import { PageChangedEvent } from 'ngx-bootstrap/pagination';
 })  
 export class HomePageComponent implements OnInit {
   pessoas: Pessoa[] | undefined;
-  pageNumber : number = 0;
-  pageSize: number = 5;
-  parametro:  number = 0;
+  pageNumber! : number;
+  pageSize!: number;
+  parametro!:  number ;
 
  
   constructor(private adminService: AdminService, private router: Router, private activatedRoute: ActivatedRoute) {
@@ -24,9 +24,13 @@ export class HomePageComponent implements OnInit {
   ngOnInit(): void {
      this.activatedRoute.queryParams
     .subscribe(params => {
-          this.pageNumber = parseInt(params['pageNumber']||0);
-          this.pageSize  = parseInt(params['pageSize']||10);  
+          this.pageNumber = parseInt(params['pageNumber'])||0;
+          this.pageSize  = parseInt(params['pageSize'])||10;  
              
+          if (this.pageNumber < 0){
+              this.pageNumber = 0;
+          } 
+
 });
   console.log(this.pageNumber);
 
