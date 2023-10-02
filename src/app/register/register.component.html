@@ -14,11 +14,11 @@
         <label id="labelCPF" for="cpf">CPF</label>
       </div>
 
-      <div class="label-float">
+      <div class="select-tipo">
         <select name="tipo" id="tipo"  [(ngModel)]="pessoaData.tipo" required>
-          <option value="1">Aluno</option>
-          <option value="2">Responsável</option>
-          <option value="3">Profissional</option>
+          <option value="profissional">Profissional</option>
+          <option value="alunos">Aluno</option>
+          <option value="responsavel">Responsável</option>
         </select>
       </div>
 

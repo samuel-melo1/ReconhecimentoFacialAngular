@@ -34,7 +34,7 @@ body {
 .hidden{
 
   display: none;
-  
+
 }
 
 h1 {
@@ -115,4 +115,46 @@ button[type="submit"] {
 button[type="submit"]:hover {
   background-color: #0056b3;
 }
+
+.select-tipo {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.select-tipo select {
+  font-size: 16px;
+  padding: 10px;
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: transparent;
+  outline: none;
+  transition: border-color 0.2s, background-color 0.2s;
+}
+
+.select-tipo select:focus {
+  border-color: #007bff;
+  background-color: rgba(0, 123, 255, 0.05);
+}
+
+.select-tipo label {
+  font-size: 14px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 10px;
+  padding: 0 5px;
+  background-color: white;
+  color: #999;
+  pointer-events: none;
+  transition: transform 0.2s, font-size 0.2s, top 0.2s;
+}
+
+.select-tipo select:valid + label {
+  font-size: 12px;
+  top: -12px;
+  transform: translateY(0);
+  background-color: white;
+}
+
 
