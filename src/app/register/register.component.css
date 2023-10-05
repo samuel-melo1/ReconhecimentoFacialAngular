@@ -14,7 +14,7 @@ body {
 
 .card {
   background-color: white;
-  padding: 80px;
+  padding: 30px;
   border-radius: 5px;
   box-shadow: 0 20px 15px rgba(0, 0, 0, 0.5);
 }
@@ -156,5 +156,3 @@ button[type="submit"]:hover {
   transform: translateY(0);
   background-color: white;
 }
-
-

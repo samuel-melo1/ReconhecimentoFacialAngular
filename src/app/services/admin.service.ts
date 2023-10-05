@@ -31,5 +31,12 @@ export class AdminService {
       return this.http.get<Page[]>(url)
 
     }
+
+    uploadFile(file: File) {
+      const formData = new FormData();
+      formData.append('file', file);
+  
+      return this.http.post(`${this.baseUrl}/api/files/uploadFile`, formData);
+    }
 }
 
