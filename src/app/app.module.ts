@@ -1,32 +1,30 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppComponent } from './app.component';
 import { RegisterComponent } from './register/register.component';
 import { HttpClientModule } from '@angular/common/http';
 import {FormsModule} from "@angular/forms";
-import { FaceRecognitionComponent } from './face-recognition/face-recognition.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import {RouterModule, Routes} from "@angular/router";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
-import { PaginationComponent } from './pagination/pagination.component';
-  
 import { DataTablesModule } from 'angular-datatables';
+import { InicialPageComponent } from './inicial-page/inicial-page.component';
 
 const routes : Routes = [
-    { path: 'home', component: HomePageComponent },
-    { path: '', component: RegisterComponent }
+    { path: 'listagem', component: HomePageComponent },
+    { path: '', component: RegisterComponent },
+    { path: 'home', component: InicialPageComponent },
+
   ]
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
-    FaceRecognitionComponent,
     HomePageComponent,
-    PaginationComponent,
-  
+    InicialPageComponent,
+
   ],
   imports: [
     BrowserModule,

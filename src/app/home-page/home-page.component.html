@@ -34,21 +34,21 @@
     <nav aria-label="Page navigation example">
       <ul class="pagination justify-content-end">
         <ng-container *ngIf="pageNumber > 0">
-          <li class="page-item"><a class="page-link" id="voltar" href="/home?pageNumber={{pageNumber - 1}}&pageSize={{pageSize}}">Previous</a></li>
+          <li class="page-item"><a class="page-link" id="voltar" href="/listagem?pageNumber={{pageNumber - 1}}&pageSize={{pageSize}}">Previous</a></li>
         </ng-container>
 
         <ng-container *ngIf="pageNumber != 0">
-          <li class="page-item"><a class="page-link" href="/home?pageNumber=0&pageSize={{pageSize}}">1</a></li>
+          <li class="page-item"><a class="page-link" href="/listagem?pageNumber=0&pageSize={{pageSize}}">1</a></li>
         </ng-container>
 
-        <li class="page-item"><a class="page-link active"  href="/home?pageNumber={{pageNumber}}&pageSize={{pageSize}}">{{pageNumber + 1}}</a></li>
+        <li class="page-item"><a class="page-link active"  href="/listagem?pageNumber={{pageNumber}}&pageSize={{pageSize}}">{{pageNumber + 1}}</a></li>
 
         <ng-container *ngIf="pageNumber != totalPage -1">
-          <li class="page-item"><a class="page-link" href="/home?pageNumber={{(totalPage  - 1)}}&pageSize={{pageSize}}">{{totalPage}}</a></li>
+          <li class="page-item"><a class="page-link" href="/listagem?pageNumber={{(totalPage  - 1)}}&pageSize={{pageSize}}">{{totalPage}}</a></li>
         </ng-container>
 
         <ng-container *ngIf="(pageNumber + 1) < totalPage">
-          <li class="page-item"><a class="page-link" href="/home?pageNumber={{(pageNumber + 1)}}&pageSize={{pageSize}}">Next</a></li>
+          <li class="page-item"><a class="page-link" href="/listagem?pageNumber={{(pageNumber + 1)}}&pageSize={{pageSize}}">Next</a></li>
         </ng-container>
 
       </ul>
