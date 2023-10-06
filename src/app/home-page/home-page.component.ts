@@ -32,7 +32,6 @@ export class HomePageComponent implements OnInit {
           this.pageSize  = parseInt(params['pageSize'])||10;
 
 });
-  console.log(this.pageNumber);
 
     this.pageList(this.pageNumber,this.pageSize);
   }
@@ -51,5 +50,10 @@ pageList(pageNumber: number,pageSize: number){
 
   })
 }
+  returnInicial() {
+    this.router.navigate(['home']);
+
+  }
+
 
 }
