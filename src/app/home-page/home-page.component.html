@@ -38,8 +38,8 @@
             <span class="material-symbols-outlined justify-content-center align-content-center d-flex">
                   add_photo_alternate
             </span>
-        </label>
-        <input class="form-control form-control-sm" id="formFileSm" type="file" style="display: none;">
+          </label>
+          <input class="form-control form-control-sm" id="formFileSm" type="file" style="display: none; " (change)="onFileSelected($event)">
         </td>
      </tr>
 
@@ -48,7 +48,7 @@
         <ng-container *ngIf="pageNumber > 0">
           <li class="page-item"><a class="page-link" id="voltar" href="/listagem?pageNumber={{pageNumber - 1}}&pageSize={{pageSize}}">Previous</a></li>
         </ng-container>
-     
+
         <ng-container *ngIf="pageNumber != 0">
           <li class="page-item"><a class="page-link" href="/listagem?pageNumber=0&pageSize={{pageSize}}">1</a></li>
         </ng-container>

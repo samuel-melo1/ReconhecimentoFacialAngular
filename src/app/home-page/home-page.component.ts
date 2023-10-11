@@ -2,7 +2,7 @@ import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {Pessoa} from "../pessoa.model";
 import {AdminService} from "../services/admin.service";
 import {Router, ActivatedRoute} from "@angular/router";
-
+import { ToastrService } from 'ngx-toastr';
 import { data } from 'jquery';
 import { PageChangedEvent } from 'ngx-bootstrap/pagination';
 import {Page} from "ngx-pagination";
@@ -20,9 +20,11 @@ export class HomePageComponent implements OnInit {
   pageSize!: number;
   parametro!:  number ;
   totalPage!: number;
+  selectedFile: File | undefined;
 
   @ViewChild("voltar",{static:false}) public voltar!: ElementRef;
-  constructor(private adminService: AdminService, private router: Router, private activatedRoute: ActivatedRoute) {
+  constructor(private adminService: AdminService, private router: Router,
+              private activatedRoute: ActivatedRoute, private toastr: ToastrService) {
   }
 
   ngOnInit(): void {
@@ -41,18 +43,40 @@ export class HomePageComponent implements OnInit {
       this.pessoas = data;
     });
   }
+  showSuccess() {
+    this.toastr.success('Imagem salva com sucesso', 'Sucesso');
+  }
 
+  showError(){
+    this.toastr.error("Falha ao cadastrar imagem", "ERROR")
+  }
 
-pageList(pageNumber: number,pageSize: number){
+  pageList(pageNumber: number,pageSize: number){
   this.adminService.getListagem(pageNumber,pageSize).subscribe(res => {
     this.pessoas = res["content"];
     this.totalPage = res["totalPages"];
-
   })
 }
   returnInicial() {
     this.router.navigate(['home']);
 
+  }
+  onFileSelected(event: any): void {
+    this.selectedFile = event.target.files[0];
+    this.onSave();
+  }
+  onSave(): void {
+    if (this.selectedFile) {
+      // Envie o arquivo para o backend
+      this.adminService.uploadFile(this.selectedFile).subscribe(
+        (response) => {
+          this.showSuccess();
+        },
+        (error) => {
+          this.showError();
+        }
+      );
+    }
   }
 
 
