@@ -21,6 +21,7 @@ export class HomePageComponent implements OnInit {
   parametro!:  number ;
   totalPage!: number;
   selectedFile: File | undefined;
+  cpf!: String;
 
   @ViewChild("voltar",{static:false}) public voltar!: ElementRef;
   constructor(private adminService: AdminService, private router: Router,
@@ -61,19 +62,20 @@ export class HomePageComponent implements OnInit {
     this.router.navigate(['home']);
 
   }
-  onFileSelected(event: any): void {
+  onFileSelected(event: any, cpf:string): void {
     this.selectedFile = event.target.files[0];
+    this.cpf = cpf;
     this.onSave();
   }
   onSave(): void {
     if (this.selectedFile) {
       // Envie o arquivo para o backend
-      this.adminService.uploadFile(this.selectedFile).subscribe(
+      this.adminService.uploadFile(this.selectedFile, this.cpf).subscribe(
         (response) => {
           this.showSuccess();
         },
         (error) => {
-          this.showError();
+          console.log(error)
         }
       );
     }

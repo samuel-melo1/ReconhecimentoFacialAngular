@@ -1,6 +1,6 @@
 export class Pessoa {
 
-  id!: number;
+  id!: number ;
   nome!: string;
   cpf!: string;
   tipo!: string;

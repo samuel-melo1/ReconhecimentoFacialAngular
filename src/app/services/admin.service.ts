@@ -32,11 +32,11 @@ export class AdminService {
 
     }
 
-    uploadFile(file: File,  pessoaData: any = {}) {
+    uploadFile(file: File, cpf: String) {
       const formData = new FormData();
       formData.append('file', file);
-
-      return this.http.post(`${this.baseUrl}/api/files/uploadFile`, formData);
+      console.log(cpf)
+      return this.http.post(`${this.baseUrl}/api/files/uploadFile/${cpf}`, formData);
     }
 }
 
