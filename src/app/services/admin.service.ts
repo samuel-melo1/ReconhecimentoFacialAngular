@@ -21,6 +21,7 @@ export class AdminService {
   }
 
   getPessoaList(): Observable<Pessoa[]> {
+
     return this.http.get<Pessoa[]>(`${this.baseUrl}/api/pessoa/search`);
   }
 

@@ -22,6 +22,7 @@ export class HomePageComponent implements OnInit {
   totalPage!: number;
   selectedFile: File | undefined;
   cpf!: String;
+  pessoa ?: Pessoa;
 
   @ViewChild("voltar",{static:false}) public voltar!: ElementRef;
   constructor(private adminService: AdminService, private router: Router,
@@ -60,12 +61,11 @@ export class HomePageComponent implements OnInit {
 }
   returnInicial() {
     this.router.navigate(['home']);
-
   }
-  onFileSelected(event: any, cpf:string): void {
+  onFileSelected(event: any, cpf: string): void {
     this.selectedFile = event.target.files[0];
     this.cpf = cpf;
-    this.onSave();
+     this.onSave();
   }
   onSave(): void {
     if (this.selectedFile) {
@@ -80,6 +80,5 @@ export class HomePageComponent implements OnInit {
       );
     }
   }
-
-
+  protected readonly Pessoa = Pessoa;
 }
