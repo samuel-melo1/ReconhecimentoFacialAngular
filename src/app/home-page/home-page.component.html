@@ -1,11 +1,15 @@
+<!DOCTYPE html>
+<html>
 <head>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
+<body>
 <div class="container">
   <nav class="navbar navbar-expand-lg bg-light">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">Navbar</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -19,55 +23,59 @@
     </div>
   </nav>
   <h2 class="text-center">Pessoa List</h2>
-  <table class="table table-stripped">
+  <table class="table table-striped">
     <thead>
-        <tr>
-          <th>Id</th>
-          <th>Nome</th>
-          <th>CPF</th>
-          <th>Tipo</th>
-          <th>Upload</th>
-        </tr>
+    <tr>
+      <th>Id</th>
+      <th>Nome</th>
+      <th>CPF</th>
+      <th>Tipo</th>
+      <th>Upload</th>
+    </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let pessoa of pessoas" >
-        <td> {{ pessoa.id_pessoa }} </td>
-        <td> {{ pessoa.nome }} </td>
-        <td> {{ pessoa.cpf}} </td>
-        <td> {{ pessoa.tipo }} </td>
-        <td>
-          <label for="input-{{pessoa.id_pessoa}}"  class="form-label btn btn-primary p-1 m-0  justify-content-center align-content-center" style="cursor: pointer;">
-            <span class="material-symbols-outlined justify-content-center align-content-center d-flex">
-                  add_photo_alternate
-            </span>
-          </label>
-          <input class="form-control form-control-sm" id="input-{{pessoa.id_pessoa}}" type="file" style="display: none; " (change)="onFileSelected($event,pessoa.cpf) ">
-        </td>
-     </tr>
-
-    <nav aria-label="Page navigation example">
-      <ul class="pagination justify-content-end">
-        <ng-container *ngIf="pageNumber > 0">
-          <li class="page-item"><a class="page-link" id="voltar" href="/listagem?pageNumber={{pageNumber - 1}}&pageSize={{pageSize}}">Previous</a></li>
-        </ng-container>
-
-        <ng-container *ngIf="pageNumber != 0">
-          <li class="page-item"><a class="page-link" href="/listagem?pageNumber=0&pageSize={{pageSize}}">1</a></li>
-        </ng-container>
-     <span class="material-symbols-outlined"></span>
-        <li class="page-item"><a class="page-link active"  href="/listagem?pageNumber={{pageNumber}}&pageSize={{pageSize}}">{{pageNumber + 1}}</a></li>
-
-        <ng-container *ngIf="pageNumber != totalPage -1">
-          <li class="page-item"><a class="page-link" href="/listagem?pageNumber={{(totalPage  - 1)}}&pageSize={{pageSize}}">{{totalPage}}</a></li>
-        </ng-container>
-
-        <ng-container *ngIf="(pageNumber + 1) < totalPage">
-          <li class="page-item"><a class="page-link" href="/listagem?pageNumber={{(pageNumber + 1)}}&pageSize={{pageSize}}">Next</a></li>
-        </ng-container>
-
-      </ul>
-    </nav>
+    <tr *ngFor="let pessoa of pessoas">
+      <td>{{ pessoa.id_pessoa }}</td>
+      <td>{{ pessoa.nome }}</td>
+      <td>{{ pessoa.cpf }}</td>
+      <td>{{ pessoa.tipo }}</td>
+      <td>
+        <label for="input-{{ pessoa.id_pessoa }}" class="btn btn-primary p-1 m-0 justify-content-center align-content-center"
+               style="cursor: pointer;">
+                    <span class="material-symbols-outlined justify-content-center align-content-center d-flex">
+                        add_photo_alternate
+                    </span>
+        </label>
+        <input class="form-control form-control-sm" id="input-{{ pessoa.id_pessoa }}" type="file" style="display: none;"
+               (change)="onFileSelected($event, pessoa.cpf)">
+      </td>
+    </tr>
     </tbody>
   </table>
+  <nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-end">
+      <ng-container *ngIf="pageNumber > 0">
+        <li class="page-item"><a class="page-link" id="voltar"
+                                 href="/listagem?pageNumber={{pageNumber - 1}}&pageSize={{pageSize}}">Previous</a></li>
+      </ng-container>
+      <ng-container *ngIf="pageNumber != 0">
+        <li class="page-item"><a class="page-link" href="/listagem?pageNumber=0&pageSize={{pageSize}}">1</a></li>
+      </ng-container>
+      <span class="material-symbols-outlined"></span>
+      <li class="page-item"><a class="page-link active"
+                               href="/listagem?pageNumber={{pageNumber}}&pageSize={{pageSize}}">{{pageNumber + 1}}</a>
+      </li>
+      <ng-container *ngIf="pageNumber != totalPage -1">
+        <li class="page-item"><a class="page-link" href="/listagem?pageNumber={{(totalPage  - 1)}}&pageSize={{pageSize}}">
+          {{totalPage}}</a></li>
+      </ng-container>
+      <ng-container *ngIf="(pageNumber + 1) < totalPage">
+        <li class="page-item"><a class="page-link" href="/listagem?pageNumber={{(pageNumber + 1)}}&pageSize={{pageSize}}">
+          Next</a></li>
+      </ng-container>
+    </ul>
+  </nav>
   <button type="button" class="btn btn-outline-primary" (click)="returnInicial()">Voltar</button>
 </div>
+</body>
+</html>
