@@ -22,7 +22,7 @@
       </div>
     </div>
   </nav>
-  <h2 class="text-center">Pessoa List</h2>
+  <h2 class="text-center">Lista de Pessoas</h2>
   <table class="table table-striped">
     <thead>
     <tr>
@@ -31,6 +31,7 @@
       <th>CPF</th>
       <th>Tipo</th>
       <th>Upload</th>
+      <th>Tirar Foto</th>
     </tr>
     </thead>
     <tbody>
@@ -42,13 +43,19 @@
       <td>
         <label for="input-{{ pessoa.id_pessoa }}" class="btn btn-primary p-1 m-0 justify-content-center align-content-center"
                style="cursor: pointer;">
-                    <span class="material-symbols-outlined justify-content-center align-content-center d-flex">
-                        add_photo_alternate
-                    </span>
+                <span class="material-symbols-outlined justify-content-center align-content-center d-flex">
+                      add_photo_alternate
+                </span>
         </label>
         <input class="form-control form-control-sm" id="input-{{ pessoa.id_pessoa }}" type="file" style="display: none;"
                (change)="onFileSelected($event, pessoa.cpf)">
       </td>
+      <td>
+        <button type="button" class="btn btn-outline-primary" (click)="tirarFoto(pessoa.cpf)">
+          <span class="material-symbols-outlined">photo_camera</span>
+        </button>
+      </td>
+
     </tr>
     </tbody>
   </table>
@@ -79,3 +86,6 @@
 </div>
 </body>
 </html>
+<!-- Em algum template HTML de outro componente -->
+
+

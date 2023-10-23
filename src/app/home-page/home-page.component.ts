@@ -3,13 +3,9 @@ import {Pessoa} from "../pessoa.model";
 import {AdminService} from "../services/admin.service";
 import {Router, ActivatedRoute} from "@angular/router";
 import { ToastrService } from 'ngx-toastr';
-import { data } from 'jquery';
-import { PageChangedEvent } from 'ngx-bootstrap/pagination';
-import {Page} from "ngx-pagination";
-
 
 @Component({
-  selector: 'app-home-page',
+  selector: 'home-page',
   templateUrl: './home-page.component.html',
   styleUrls: ['./home-page.component.css']
 })
@@ -34,12 +30,9 @@ export class HomePageComponent implements OnInit {
     .subscribe(params => {
           this.pageNumber = parseInt(params['pageNumber'])||0;
           this.pageSize  = parseInt(params['pageSize'])||10;
-
 });
-
     this.pageList(this.pageNumber,this.pageSize);
   }
-
   private getPessoa() {
     this.adminService.getPessoaList().subscribe(data => {
       this.pessoas = data;
@@ -67,6 +60,18 @@ export class HomePageComponent implements OnInit {
     this.cpf = cpf;
      this.onSave();
   }
+
+  tirarFoto(cpf: string) {
+    this.adminService.tirarFoto(cpf).subscribe(
+      (response) => {
+        this.toastr.success('Foto tirada com sucesso', 'Sucesso');
+      },
+      (error) => {
+        this.toastr.error("Falha ao tirar foto", "ERROR")
+      }
+    );
+  }
+
   onSave(): void {
     if (this.selectedFile) {
       // Envie o arquivo para o backend
@@ -80,5 +85,4 @@ export class HomePageComponent implements OnInit {
       );
     }
   }
-  protected readonly Pessoa = Pessoa;
 }
