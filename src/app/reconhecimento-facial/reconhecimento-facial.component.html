@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" />
+</head>
+<body>
+<div class="container">
+
+  <h2 class="text-center">Logs E Reconhecimento Facial</h2>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>Id</th>
+      <th>Nome</th>
+      <th>Data/Hora</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let entry of logData">
+      <td>{{ entry.id_log }}</td>
+      <td>{{ entry.pessoa.nome }}</td>
+      <td>{{ entry.data_log }}</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <!-- Botão para página anterior -->
+  <button *ngIf="page > 1" class="btn btn-primary" (click)="paginaAnterior()">Página Anterior</button>
+
+  <!-- Botão para próxima página -->
+  <button *ngIf="page < totalPages" class="btn btn-primary" (click)="proximaPagina()">Próxima Página</button>
+  <div class="d-flex justify-content-end align-items-center">
+    <button type="button" class="btn btn-outline-primary" (click)="returnInicial()">Voltar</button>
+  </div>
+</div>
+
+</body>
+</html>
